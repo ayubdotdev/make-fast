@@ -76,6 +76,21 @@ export default function ToolsPage() {
     }
   };
 
+  // Logo animation with more interesting movement
+  const logoVariants = {
+    initial: { rotate: 0, scale: 1 },
+    animate: {
+      rotate: [0, 10, -10, 6, -4, 0],
+      scale: [1, 1.1, 0.95, 1.05, 1],
+      transition: {
+        duration: 3.5,
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatType: "reverse",
+        repeatDelay: 2
+      }
+    }
+  };
   // Tool card grid variants for smoother list rendering
   const toolCardContainerVariants = {
     hidden: { opacity: 0 },
@@ -110,22 +125,7 @@ export default function ToolsPage() {
       }
     }
   };
-
-  // Logo animation with more interesting movement
-  const logoVariants = {
-    initial: { rotate: 0, scale: 1 },
-    animate: {
-      rotate: [0, 10, -10, 6, -4, 0],
-      scale: [1, 1.1, 0.95, 1.05, 1],
-      transition: {
-        duration: 3.5,
-        ease: "easeInOut",
-        repeat: Infinity,
-        repeatType: "reverse",
-        repeatDelay: 2
-      }
-    }
-  };
+  
 
   return (
     <div className="min-h-screen bg-slate-950 text-white px-6 py-10 overflow-hidden">
@@ -139,7 +139,7 @@ export default function ToolsPage() {
         <motion.div variants={itemVariants} className="flex items-center justify-center gap-3">
           <motion.div 
             className="w-10 h-10 relative"
-            variants={logoVariants}
+            // variants={logoVariants}
             initial="initial"
             animate="animate"
           >
