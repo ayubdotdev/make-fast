@@ -31,9 +31,20 @@ export default function ToolCard({ tool, packageManager }: ToolCardProps) {
       
       className="bg-gray-900/70 border border-gray-700/60 backdrop-blur-md rounded-2xl p-6 shadow-lg transition-all hover:shadow-2xl hover:scale-105 hover:-translate-y-1"
     >
-      <h3 className="text-xl font-bold text-white mb-4 tracking-wide">
-        {tool.name}
-      </h3>
+      <div className="flex items-center gap-3 mb-4">
+        <div 
+          className="w-10 h-10 rounded-lg flex items-center justify-center"
+          style={{
+            backgroundImage: `url(${tool.logo})`,
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+        <h3 className="text-xl font-bold text-white tracking-wide">
+          {tool.name}
+        </h3>
+      </div>
 
       <div className="flex items-center gap-3">
         <code className="flex-1 bg-gray-800 text-sm text-lime-400 px-4 py-2 rounded-md overflow-x-auto font-mono border border-gray-700">
