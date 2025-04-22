@@ -125,7 +125,7 @@ export const tools: Tool[] = [
     id: 'remix',
     name: 'Remix',
     category: 'tech-stack',
-    logo: 'https://raw.githubusercontent.com/ayubdotdev/make-fast/refs/heads/master/remix.svg',
+    logo: 'https://imgs.search.brave.com/F35tFgaSvfIrjFlUiiS47oh_ZuRMQx8kR8I1PvrqCPo/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMWRjYzFlMDVj/NzJiNmY2OTIwNjE4/Zjc5MDQ3NWFjOTll/MDBjNzg4MDkxYjQ1/YWZjY2UzMzQ4NGQz/MmFhMDEyNS9yZW1p/eC5ydW4v',
     commands: {
       npm: 'npx create-remix',
       yarn: 'yarn create remix',
@@ -173,7 +173,7 @@ export const tools: Tool[] = [
     id: 'qwik',
     name: 'Qwik',
     category: 'tech-stack',
-    logo: 'https://pbs.twimg.com/media/GpDXqXWWcAAPczc?format=png&name=360x360',
+    logo: 'https://imgs.search.brave.com/vg_Wvk-VOtkRu3fplByPO_ys7QCFlpeQf6tefxTyXDE/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZTI4YjViYWRl/YzY3YTQ4MjljOTYz/MDc3MDhjZTRhZjY0/MWZlOGUwYjExMmUz/NGY0YWZjODMyODQz/NzJhOTllNi9xd2lr/LmRldi8',
     commands: {
       npm: 'npm create qwik@latest',
       yarn: 'yarn create qwik',
