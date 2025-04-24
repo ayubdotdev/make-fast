@@ -32,7 +32,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white flex flex-col items-center justify-center px-4 py-10">
+    <div className=" min-h-screen bg-slate-950 text-white flex flex-col items-center justify-center px-4 sm:px-6 py-4 sm:py-6">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -42,9 +42,9 @@ export default function Home() {
         {/* Logo */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8"
+          className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8"
         >
-          <div className="w-14 h-14 relative">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 relative">
             <motion.div
               animate={{
                 y: [0, -10, 0],
@@ -57,44 +57,37 @@ export default function Home() {
               }}
               className="absolute inset-0"
             >
-              {/* <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 2L8 7H16L12 2Z" fill="#FF4D6A" />
-                <path d="M12 22C10 19.5 8.5 17.5 8 14H16C15.5 17.5 14 19.5 12 22Z" fill="#FF4D6A" />
-                <circle cx="12" cy="12" r="6" fill="#FF4D6A" />
-                <circle cx="9" cy="10" r="1.5" fill="white" />
-              </svg> */}
+             
             </motion.div>
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold text-green-400">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-green-400 flex items-center gap-2">
             Developer Tools 
-            <path d="M45.8232 20.5411L44.038 17.2468L43.1066 15.5609L42.738 14.902L42.6992 14.9408L37.8094 6.47238C36.587 4.34075 34.2974 3.02301 31.8137 3.04239L27.5255 3.15865L14.7384 3.19741C12.313 3.21679 10.101 4.49577 8.87853 6.56927L1.09766 21.9945L15.0101 4.72831L33.2496 24.7656L30.0091 28.0406L31.9495 43.7178L31.9689 43.679V43.7178H31.9301L31.9689 43.7565L33.4824 45.2293L40.8364 52.4187C41.1469 52.7094 41.6514 52.3606 41.4379 51.9924L36.8975 43.0589L44.8142 28.4282L45.0664 28.1375C45.1634 28.0212 45.2604 27.905 45.3381 27.7887C46.8904 25.6764 47.1038 22.8472 45.8232 20.5411Z" fill="#AC7EF4">
-            </path>
           </h1>
         </motion.div>
 
         {/* Heading and Description */}
-        <motion.div variants={itemVariants} className="mb-10 px-2">
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-5 leading-tight">
+        <motion.div variants={itemVariants} className="mb-8 sm:mb-10 px-2">
+          <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-5 leading-tight">
             <span className="bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
               One Page. All Installations.
             </span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-slate-300">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto">
             Stop searching for installation commands. Find all the tools you need in one place and get started with a single click.
           </p>
         </motion.div>
 
         {/* Terminal Code */}
-        <motion.div variants={itemVariants} className="mb-14 px-2">
+        <motion.div variants={itemVariants} className="mb-10 sm:mb-14 px-2">
           <Card className="bg-slate-900 border border-slate-800 shadow-xl max-w-full sm:max-w-xl mx-auto">
-            <CardContent className="p-4 sm:p-6">
-              <div className="flex items-center gap-1 mb-4">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            <CardContent className="p-3 sm:p-4 md:p-6">
+              <div className="flex items-center gap-1 mb-3 sm:mb-4">
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
               </div>
 
-              <div className="font-mono text-xs sm:text-sm break-words">
+              <div className="font-mono text-[10px] sm:text-xs md:text-sm break-words">
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -112,7 +105,7 @@ export default function Home() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.8, duration: 0.5 }}
-                  className="mt-2"
+                  className="mt-1.5 sm:mt-2"
                 >
                   <span className="text-green-400">$ </span>
                   <span className="text-slate-300">
@@ -124,7 +117,7 @@ export default function Home() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 3, duration: 0.5 }}
-                  className="mt-2"
+                  className="mt-1.5 sm:mt-2"
                 >
                   <span className="text-green-400">$ </span>
                   <span className="text-slate-300">
@@ -141,16 +134,16 @@ export default function Home() {
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
-          className="mb-6"
+          className="mb-4 sm:mb-6 w-full max-w-xs sm:max-w-none mx-auto"
         >
-          <Link href="/tools">
+          <Link href="/tools" className="w-full">
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white text-lg sm:text-xl font-bold px-8 py-4 sm:px-16 sm:py-6 rounded-xl shadow-lg shadow-green-500/20"
+              className="w-full bg-green-500 hover:bg-green-600 text-white text-base sm:text-lg md:text-xl font-bold px-6 sm:px-8 md:px-16 py-3 sm:py-4 md:py-6 rounded-xl shadow-lg shadow-green-500/20"
             >
-              <span className="flex items-center justify-center gap-3">
+              <span className="flex items-center justify-center gap-2 sm:gap-3">
                 Get Started
-                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                 </svg>
               </span>
@@ -161,7 +154,7 @@ export default function Home() {
         {/* Footer Note */}
         <motion.p
           variants={itemVariants}
-          className="text-sm sm:text-base text-slate-400 px-2"
+          className="text-xs sm:text-sm md:text-base text-slate-400 px-2"
         >
           Over 100+ installation commands for popular frameworks and libraries
         </motion.p>

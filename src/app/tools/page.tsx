@@ -127,7 +127,7 @@ export default function ToolsPage() {
             }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            Developer Tools Installer
+            Developer Tools 
           </motion.h1>
         </motion.div>
 
