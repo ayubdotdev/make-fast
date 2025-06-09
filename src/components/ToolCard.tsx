@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Copy, Check } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Tool } from '@/src/data/tools';
