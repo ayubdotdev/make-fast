@@ -1,8 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Copy, Check } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Tool } from '@/src/data/tools';
 
 interface ToolCardProps {
@@ -12,23 +12,61 @@ interface ToolCardProps {
 
 export default function ToolCard({ tool, packageManager }: ToolCardProps) {
   const [copied, setCopied] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
+      setShowToast(true);
+      
+      setTimeout(() => {
+        setShowToast(false);
+      }, 2000);
+      
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error('Failed to copy text: ', err);
     }
   };
 
+  useEffect(() => {
+    if (showToast) {
+      const toastElement = document.createElement('div');
+      toastElement.id = 'toast-notification';
+      toastElement.innerHTML = `
+        <div class="fixed bottom-6 right-6 z-[9999] bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg border border-green-400/30 backdrop-blur-sm">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-sm font-medium">Copied to clipboard!</span>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(toastElement);
+      
+      const timer = setTimeout(() => {
+        if (toastElement.parentNode) {
+          toastElement.parentNode.removeChild(toastElement);
+        }
+      }, 2000);
+      
+      return () => {
+        clearTimeout(timer);
+        if (toastElement.parentNode) {
+          toastElement.parentNode.removeChild(toastElement);
+        }
+      };
+    }
+  }, [showToast]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      
       className="bg-gray-900/70 border border-gray-700/60 backdrop-blur-md rounded-2xl p-6 shadow-lg transition-all hover:shadow-2xl hover:scale-105 hover:-translate-y-1"
     >
       <div className="flex items-center gap-3 mb-4">

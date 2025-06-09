@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Button } from '@/src/components/ui/button';
 import { Card, CardContent } from '@/src/components/ui/card';
 import { tools } from '@/src/data/tools';
+import { Loader2 } from 'lucide-react';
+import { useState } from 'react';
 
 export default function Home() {
   const containerVariants = {
@@ -30,9 +32,16 @@ export default function Home() {
     ...tools.filter(tool => tool.category === 'ui-libraries').slice(0, 4),
     ...tools.filter(tool => tool.category === 'animations').slice(0, 4),
   ];
+  const[isLoading,setIsLoading]=useState(false)
+
+  const handleSubmit = ()=>{
+    setIsLoading(true)
+  }
 
   return (
-    <div className=" min-h-screen bg-slate-950 text-white flex flex-col items-center justify-center px-4 sm:px-6 py-4 sm:py-6">
+
+
+    <div className="min-h-screen bg-slate-950 text-white flex flex-col items-center justify-center px-4 sm:px-6 py-2 sm:py-4">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -42,7 +51,7 @@ export default function Home() {
         {/* Logo */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8"
+          className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6"
         >
           <div className="w-12 h-12 sm:w-14 sm:h-14 relative">
             <motion.div
@@ -134,7 +143,7 @@ export default function Home() {
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
-          className="mb-4 sm:mb-6 w-full max-w-xs sm:max-w-none mx-auto"
+          className="mb-4 sm:mb-6 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto"
         >
           <Link href="/tools" className="w-full">
             <Button
@@ -142,10 +151,8 @@ export default function Home() {
               className="w-full bg-green-500 hover:bg-green-600 text-white text-base sm:text-lg md:text-xl font-bold px-6 sm:px-8 md:px-16 py-3 sm:py-4 md:py-6 rounded-xl shadow-lg shadow-green-500/20"
             >
               <span className="flex items-center justify-center gap-2 sm:gap-3">
-                Get Started
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
+                {isLoading && <Loader2 className="w-5 h-5 animate-spin" />}
+                {isLoading ? 'Starting' : "Get Started"}
               </span>
             </Button>
           </Link>
